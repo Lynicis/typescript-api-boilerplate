@@ -1,5 +1,5 @@
 type ServerConfigModel = {
-    port: number;
+    port: string;
 };
 
 interface HandlerImplements {
