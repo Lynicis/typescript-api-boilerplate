@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "main.ts",
   "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "yarn build && node dist/main.js",
