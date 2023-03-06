@@ -12,13 +12,12 @@
     "lint": "eslint **/*.ts",
     "lint:fix": "eslint --fix **/*.ts",
     "test": "jest ./**/*.test.ts",
+    "test:ci": "jest --ci ./**/*.test.ts",
     "test:coverage": "jest --coverage ./**/*.test.ts",
     "open:coverage": "open coverage/index.html"
   },
   "dependencies": {
     "@fastify/request-context": "^4.2.0",
-    "@fastify/type-provider-typebox": "^2.4.0",
-    "@sinclair/typebox": "^0.25.24",
     "dotenv": "^16.0.3",
     "fastify": "^4.14.0",
     "prettier": "^2.8.4",

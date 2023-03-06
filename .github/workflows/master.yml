@@ -50,7 +50,7 @@ jobs:
       - name: Test
         run: |
           yarn install
-          yarn test
+          yarn test:ci
 
   deploy-to-dev:
     runs-on: ubuntu-latest
