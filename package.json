@@ -11,9 +11,9 @@
     "start": "yarn build && node dist/main.js",
     "lint": "eslint **/*.ts",
     "lint:fix": "eslint --fix **/*.ts",
-    "test": "jest ./**/*.test.ts",
-    "test:ci": "jest --ci --forceExit ./**/*.test.ts",
-    "test:coverage": "jest --coverage ./**/*.test.ts",
+    "test": "jest",
+    "test:ci": "jest --ci",
+    "test:coverage": "jest --coverage",
     "open:coverage": "open coverage/index.html"
   },
   "dependencies": {
