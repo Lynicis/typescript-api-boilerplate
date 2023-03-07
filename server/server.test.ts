@@ -1,6 +1,5 @@
-import { Server } from "./server";
+import { Server, ServerImplements } from "./server";
 import { MainConfig } from "../config/mainConfig";
-import { expect } from "@jest/globals";
 
 test("when call server class should return server", () => {
     const server = new Server(null, null, null);
@@ -8,11 +7,10 @@ test("when call server class should return server", () => {
     expect(typeof server).toBe("object");
 });
 
-test("start and stop server without any error", () => {
+test("start and stop server without any error", async () => {
     const config = new MainConfig().ReadConfig();
-    const server = new Server(config);
-    server.Start();
-    server.Stop();
+    const server: ServerImplements = new Server(config);
+    await server.Start().then(async () => await server.Stop());
 });
 
 test("when call fastify getter should return fastify instance", () => {

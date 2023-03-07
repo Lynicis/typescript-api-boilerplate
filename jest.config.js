@@ -3,4 +3,6 @@ module.exports = {
     preset: "ts-jest",
     testEnvironment: "node",
     coverageReporters: ["html"],
+    testMatch: ["./**/*.test.ts"],
+    verbose: true,
 };
