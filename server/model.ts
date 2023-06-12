@@ -2,6 +2,11 @@ type ServerConfigModel = {
     port: string;
 };
 
-interface HandlerImplements {
+interface IHandler {
     RegisterRoutes(): void;
+}
+
+export {
+    ServerConfigModel,
+    IHandler
 }

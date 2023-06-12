@@ -1,4 +1,4 @@
-import { Server, ServerImplements } from "./server";
+import { Server, IServer } from "./server";
 import { MainConfig } from "../config/mainConfig";
 
 test("when call server class should return server", () => {
@@ -9,7 +9,7 @@ test("when call server class should return server", () => {
 
 test("start and stop server without any error", async () => {
     const config = new MainConfig().ReadConfig();
-    const server: ServerImplements = new Server(config);
+    const server: IServer = new Server(config);
     await server.Start().then(async () => await server.Stop());
 });
 

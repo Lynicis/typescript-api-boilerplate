@@ -2,18 +2,18 @@ import * as dotenv from "dotenv";
 import { MainConfigModel } from "./model";
 import { ServerConfig } from "../server/config";
 
-interface ConfigImplements {
+interface IConfig {
     ReadConfig(): object;
 }
 
-class MainConfig implements ConfigImplements {
+class MainConfig implements IConfig {
     ReadConfig(): MainConfigModel {
         const isAtRemote: string = process.env.IS_AT_REMOTE;
         if (isAtRemote == null) {
             dotenv.config();
         }
 
-        const serverConfig: ServerConfigModel = new ServerConfig().ReadConfig();
+        const serverConfig = new ServerConfig().ReadConfig();
 
         return {
             server: serverConfig,
@@ -21,4 +21,4 @@ class MainConfig implements ConfigImplements {
     }
 }
 
-export { ConfigImplements, MainConfig };
+export { IConfig, MainConfig };

@@ -1,9 +1,9 @@
-interface CustomErrorImplements {
+interface ICustomError {
     get Message(): string;
     get Code(): number;
 }
 
-class CustomError implements CustomErrorImplements {
+class CustomError implements ICustomError {
     private readonly _code: number;
     private readonly _message: string;
 
@@ -21,4 +21,4 @@ class CustomError implements CustomErrorImplements {
     }
 }
 
-export { CustomErrorImplements, CustomError };
+export { ICustomError, CustomError };

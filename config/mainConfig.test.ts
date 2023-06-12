@@ -1,5 +1,6 @@
 import { MainConfigModel } from "./model";
 import { MainConfig } from "./mainConfig";
+import { ServerConfigModel } from "../server/model";
 
 describe("when call ReadConfig should return MainConfigModel", () => {
     const env = process.env;

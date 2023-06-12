@@ -1,22 +1,23 @@
-import Fastify, { FastifyInstance, FastifyListenOptions } from "fastify";
+import { IHandler } from "./model";
 import * as winston from "winston";
 import { MainConfigModel } from "../config/model";
 import { ErrorHandlerMiddleware } from "../error/middleware";
 import { fastifyRequestContext } from "@fastify/request-context";
+import Fastify, { FastifyInstance, FastifyListenOptions } from "fastify";
 
-interface ServerImplements {
+interface IServer {
     Start(): Promise<FastifyInstance>;
     Stop();
     get Fastify(): FastifyInstance;
 }
 
-class Server implements ServerImplements {
+class Server implements IServer {
     private readonly _config: MainConfigModel;
     private readonly _logger?: winston.Logger;
-    private readonly _handlers?: Array<HandlerImplements>;
+    private readonly _handlers?: Array<IHandler>;
     private readonly _app: FastifyInstance;
 
-    constructor(config: MainConfigModel, logger?: winston.Logger, handlers?: Array<HandlerImplements>) {
+    constructor(config: MainConfigModel, logger?: winston.Logger, handlers?: Array<IHandler>) {
         this._config = config;
         this._logger = logger;
         this._app = Fastify({
@@ -64,4 +65,4 @@ class Server implements ServerImplements {
     }
 }
 
-export { ServerImplements, Server };
+export { IServer, Server };

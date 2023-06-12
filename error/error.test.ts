@@ -1,4 +1,4 @@
-import { CustomError, CustomErrorImplements } from "./error";
+import { CustomError, ICustomError } from "./error";
 import { constants } from "http2";
 
 test("when create new error should return class", () => {
@@ -9,13 +9,13 @@ test("when create new error should return class", () => {
 
 test("when call message method should return error message", () => {
     const errMsg = "something went wrong";
-    const cerr: CustomErrorImplements = new CustomError(0, errMsg);
+    const cerr: ICustomError = new CustomError(0, errMsg);
 
     expect(cerr.Message).toEqual(errMsg);
 });
 
 test("when call code method should return error code", () => {
-    const cerr: CustomErrorImplements = new CustomError(constants.HTTP_STATUS_INTERNAL_SERVER_ERROR, "");
+    const cerr: ICustomError = new CustomError(constants.HTTP_STATUS_INTERNAL_SERVER_ERROR, "");
 
     expect(cerr.Code).toEqual(constants.HTTP_STATUS_INTERNAL_SERVER_ERROR);
 });
