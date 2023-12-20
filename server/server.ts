@@ -7,7 +7,7 @@ import Fastify, { FastifyInstance, FastifyListenOptions } from "fastify";
 
 interface IServer {
     Start(): Promise<FastifyInstance>;
-    Stop();
+    Stop(): void;
     get Fastify(): FastifyInstance;
 }
 
@@ -56,8 +56,8 @@ class Server implements IServer {
         });
     }
 
-    Stop() {
-        return this._app.close();
+    Stop(): void {
+        this._app.close();
     }
 
     get Fastify(): FastifyInstance {
